@@ -35,7 +35,7 @@
           <li class="repository">
             <h2 class="repository-name">repo name</h2>
             <p>Homepage: <a href="<%= homepage %>" target="_blank">home page</a></p>
-            <p>Github: <a href="<%= html_url %>" target="_blank">html url</a></p>
+            <p>Github: <a href="<%= html_url %>" target="_blank">html_url</a></p>
           </li>
         </ul>
 
@@ -45,8 +45,10 @@
       <div class="organizations" style="display: none;">
 
         <ul class="organization-list">
-          <li>Org 1</li>
-          <li>Org 2</li>
+          <li class="organization">
+            <h2 class="organization-name"><%= login %></h2>
+            <p>Organization URL: <a href="<%= organizations_url %>" target="_blank"><%= html_url %></a></p>
+          </li>
         </ul>
 
       </div>
@@ -75,12 +77,29 @@
       </li>
     </script>
 
+    <script type="text/html" id="organization-template">
+      <li class="organization">
+        <h2 class="organization-name"><%= name %></h2>
+        <p>Organization URL: <a href="<%= avatar_url %>" target="_blank"><%= avatar_url %></a></p>
+        <p>Event: <a href="<%= events_url %> " target="blank"><%= events_url %></a></p>
+      </li>
+    </script>
+
+    <script type="text/html" id="follower-template">
+      <li class="follower">
+        <h2 class="follower-name"><%= login %></h2>
+
+      </li>
+    </script>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.12.0/lodash.js"></script>
 
     <script src="/js/users-view.js"></script>
     <script src="/js/repositories-view.js"></script>
+    <script src="/js/organizations-view.js"></script>
+    <script src="/js/followers-view.js"></script>
     <script src="/js/page.js"></script>
 
     <script>GithubBrowser.start();</script>

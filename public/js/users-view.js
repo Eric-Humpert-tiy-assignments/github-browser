@@ -15,7 +15,8 @@ if (this.GithubBrowser === undefined) this.GithubBrowser = {};
 
   function createUserDOM(users) {
     for (var user of users) {
-      $userList.append('<li class="user" data-url="' + user.repos_url + '">' + user.login + '</li>')
+      var textString = '<li class="user" data-url="' + user.repos_url + '" data-org-url="' + user.organizations_url + '" data-fol-url="' + user.followers_url + '">' + user.login +'</li>';
+      $userList.append(textString);
     }
   }
 
@@ -29,7 +30,10 @@ if (this.GithubBrowser === undefined) this.GithubBrowser = {};
     $this.addClass('chosen');
 
     var repoUrl = $this.data('url');
-    userClickCallback(repoUrl);
+    var orgUrl = $this.data('org-url');
+    var folUrl = $this.data('fol-url');
+
+    userClickCallback(repoUrl, orgUrl, folUrl);
   }
 
   function init(userClick) {
